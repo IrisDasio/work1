@@ -6,16 +6,18 @@ class QrCodeVac extends StatelessWidget {
     required this.qrUrl,
     required this.qrcode,
     required this.onClickSaveBtn,
+    required this.onShere,
+    required this.onRefrsh,
   });
 
   final String qrUrl;
   final String qrcode;
   final Function()? onClickSaveBtn;
+  final Function()? onShere;
+  final Function()? onRefrsh;
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
       appBar: AppBar(
@@ -55,21 +57,22 @@ class QrCodeVac extends StatelessWidget {
                       width: 50,
                       color: Colors.yellow,
                       child: IconButton(
-                          onPressed: onClickSaveBtn, icon: const Icon(Icons.download)),
+                          onPressed: onClickSaveBtn,
+                          icon: const Icon(Icons.download)),
                     ),
                     Container(
                       height: 50,
                       width: 50,
                       color: Colors.green,
                       child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.refresh)),
+                          onPressed: onRefrsh, icon: const Icon(Icons.refresh)),
                     ),
                     Container(
                       width: 50,
                       height: 50,
                       color: Colors.blue,
                       child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.share)),
+                          onPressed: onShere, icon: const Icon(Icons.share)),
                     ),
                   ],
                 ),
